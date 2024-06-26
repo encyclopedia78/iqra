@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const navbar = `
       <div class="navbar">
           <a href="index.html">Home</a>
-          <a href="Français.html">Français</a>
+          <a href="français.html">Français</a>
           <a href="english.html">English</a>
           <a href="mathe.html">Mathe</a>
           <a href="programmieren.html">Programmieren</a>
