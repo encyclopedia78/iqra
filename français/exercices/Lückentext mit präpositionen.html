@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lückentext mit Präpositionen</title>
+    <style>
+      .correct {
+        background-color: lightgreen;
+      }
+      .incorrect {
+        background-color: lightcoral;
+      }
+      input {
+        width: 50px;
+        margin: 2px;
+      }
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lückentext mit Präpositionen</h1>
+    <div id="text">
+      <!-- Der Text mit Lücken (Input-Felder) für Präpositionen -->
+      <p>Qui suis-je?</p>
+      <p>
+        Où suis-je ? Je ne sais pas. Je suis <input type="text" id="i1" /> une
+        magnifique chambre <input type="text" id="i2" /> une vieille maison. Il
+        y a un lit, une chaise coûteuse et une belle table. Je ne peux rien voir
+        <input type="text" id="i3" /> la fenêtre, seulement une prairie verte.
+        Le soleil brille <input type="text" id="i4" /> le champ. J'entends
+        <input type="text" id="i5" /> la musique, une musique douce, c'est
+        Mozart. Pourquoi suis-je ici ? Je ne sais pas, oh, ma tête me fait mal.
+        Je ne peux pas ouvrir la porte. Et je ne peux pas ouvrir la fenêtre. Je
+        porte un pantalon gris et une chemise grise. Je ne porte pas
+        <input type="text" id="i6" /> chaussures. J'ai faim et j'ai soif. Il n'y
+        a pas <input type="text" id="i7" /> nourriture
+        <input type="text" id="i8" /> la chambre. Il n'y a rien
+        <input type="text" id="i9" /> boire non plus.
+        <input type="text" id="i10" /> la table, il y a un stylo et
+        <input type="text" id="i11" /> papier, mais rien d'écrit
+        <input type="text" id="i12" />. Qui suis-je ? Je ne me souviens pas. Je
+        ne me souviens pas <input type="text" id="i13" /> mon nom, je ne me
+        souviens <input type="text" id="i14" /> rien. Oh, ma tête me fait
+        tellement mal. Je suis très fatigué. Je vais dormir.
+      </p>
+      <!-- Weiterer Text... (dieser Teil muss entsprechend dem obigen Schema fortgesetzt werden) -->
+    </div>
+    <button onclick="ueberpruefen()">Überprüfen</button>
+    <button onclick="korrigieren()">Korrigieren</button>
+    <button onclick="zuruecksetzen()">Zurücksetzen</button>
+
+    <script>
+      const loesungen = [
+        "dans",
+        "dans",
+        "par",
+        "sur",
+        "de",
+        "de",
+        "de",
+        "dans",
+        "à",
+        "sur",
+        "du",
+        "dessus",
+        "de",
+        "de"
+        // Weitere Lösungen hinzufügen...
+      ];
+
+      function ueberpruefen() {
+        loesungen.forEach((loesung, index) => {
+          const input = document.getElementById(`i${index + 1}`);
+          if (input.value.trim().toLowerCase() === loesung) {
+            input.classList.add("correct");
+            input.classList.remove("incorrect");
+          } else {
+            input.classList.add("incorrect");
+            input.classList.remove("correct");
+          }
+        });
+      }
+
+      function korrigieren() {
+        loesungen.forEach((loesung, index) => {
+          const input = document.getElementById(`i${index + 1}`);
+          input.value = loesung;
+          input.classList.add("correct");
+          input.classList.remove("incorrect");
+        });
+      }
+
+      function zuruecksetzen() {
+        loesungen.forEach((_, index) => {
+          const input = document.getElementById(`i${index + 1}`);
+          input.value = "";
+          input.classList.remove("correct", "incorrect");
+        });
+      }
+    </script>
+  </body>
+</html>

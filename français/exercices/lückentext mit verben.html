@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lückentext mit Verben</title>
+    <style>
+      .correct {
+        background-color: lightgreen;
+      }
+      .incorrect {
+        background-color: lightcoral;
+      }
+      input {
+        width: 80px;
+        margin: 2px;
+      }
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lückentext mit Präpositionen</h1>
+    <div id="text">
+      <!-- Der Text mit Lücken (Input-Felder) für Präpositionen -->
+      <p>Qui <input type="text" id="i1" placeholder="être" />-je?</p>
+      <p>
+        Où <input type="text" id="i2" placeholder="être" />-je ? Je ne
+        <input type="text" id="i3" placeholder="savoir" /> pas. Je
+        <input type="text" id="i4" placeholder="être" /> dans une magnifique
+        chambre dans une vieille maison. Il y
+        <input type="text" id="i5" placeholder="avoir" /> un lit, une chaise
+        coûteuse et une belle table. Je ne
+        <input type="text" id="i6" placeholder="pouvoir" /> rien
+        <input type="text" id="i7" placeholder="voir" /> par la fenêtre,
+        seulement une prairie verte. Le soleil
+        <input type="text" id="i8" placeholder="briller" /> sur le champ.
+        J'<input type="text" id="i9" placeholder="pouvoir" /> de la musique, une
+        musique douce, c'<input type="text" id="i10" placeholder="être" />
+        Mozart. Pourquoi <input type="text" id="i11" placeholder="être" />-je
+        ici ? Je ne <input type="text" id="i12" placeholder="savoir" /> pas, oh,
+        ma tête me <input type="text" id="i13" placeholder="fair" /> mal. Je ne
+        <input type="text" id="i14" placeholder="pouvoir" /> pas
+        <input type="text" id="i15" placeholder="ouvrir" /> la porte. Et je ne
+        <input type="text" id="i16" placeholder="pouvoir" /> pas
+        <input type="text" id="i17" placeholder="ouvrir" /> la fenêtre. Je
+        <input type="text" id="i18" placeholder="porter" /> un pantalon gris et
+        une chemise grise. Je ne
+        <input type="text" id="i19" placeholder="porter" /> pas de chaussures.
+        J'<input type="text" id="i20" placeholder="avoir" /> faim et j'<input
+          type="text"
+          id="i21"
+          placeholder="avoir"
+        />
+        soif. Il n'y <input type="text" id="i22" placeholder="avoir" /> pas de
+        nourriture dans la chambre. Il n'y
+        <input type="text" id="i23" placeholder="avoir" /> rien à boire non
+        plus. Sur la table, il y
+        <input type="text" id="i24" placeholder="avoir" /> un stylo et du
+        papier, mais rien d'écrit dessus. Qui
+        <input type="text" id="i25" placeholder="être" />-je ? Je ne
+        <input type="text" id="i26" placeholder="se souvenir" /> pas. Je ne
+        <input type="text" id="i27" placeholder="se souvenir" /> pas de mon nom,
+        je ne <input type="text" id="i28" placeholder="se souvenir" /> de rien.
+        Oh, ma tête me
+        <input type="text" id="i29" placeholder="faire" /> tellement mal. Je
+        <input type="text" id="i30" placeholder="être" /> très fatigué. Je
+        <input type="text" id="i31" placeholder="aller" />
+        <input type="text" id="i32" placeholder="dormir" />.
+      </p>
+      <!-- Weiterer Text... (dieser Teil muss entsprechend dem obigen Schema fortgesetzt werden) -->
+    </div>
+    <button onclick="ueberpruefen()">Überprüfen</button>
+    <button onclick="korrigieren()">Korrigieren</button>
+    <button onclick="zuruecksetzen()">Zurücksetzen</button>
+
+    <script>
+      const loesungen = [
+        "suis",
+        "suis",
+        "sais",
+        "suis",
+        "a",
+        "peux",
+        "voir",
+        "brille",
+        "entends",
+        "est",
+        "suis",
+        "sais",
+        "fait",
+        "peux",
+        "ouvrir",
+        "peux",
+        "ouvrir",
+        "porte",
+        "porte",
+        "ai",
+        "ai",
+        "a",
+        "a",
+        "a",
+        "suis",
+        "me souviens",
+        "me souviens",
+        "me souviens",
+        "fait",
+        "suis",
+        "vais",
+        "dormir"
+        // Weitere Lösungen hinzufügen...
+      ];
+
+      function ueberpruefen() {
+        loesungen.forEach((loesung, index) => {
+          const input = document.getElementById(`i${index + 1}`);
+          if (input.value.trim().toLowerCase() === loesung) {
+            input.classList.add("correct");
+            input.classList.remove("incorrect");
+          } else {
+            input.classList.add("incorrect");
+            input.classList.remove("correct");
+          }
+        });
+      }
+
+      function korrigieren() {
+        loesungen.forEach((loesung, index) => {
+          const input = document.getElementById(`i${index + 1}`);
+          input.value = loesung;
+          input.classList.add("correct");
+          input.classList.remove("incorrect");
+        });
+      }
+
+      function zuruecksetzen() {
+        loesungen.forEach((_, index) => {
+          const input = document.getElementById(`i${index + 1}`);
+          input.value = "";
+          input.classList.remove("correct", "incorrect");
+        });
+      }
+    </script>
+  </body>
+</html>
