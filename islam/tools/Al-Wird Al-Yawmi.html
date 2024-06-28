@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>الورد اليومي</title>
+  <link rel="manifest" href="manifest.json"></link>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .scheiben-container {
+      width: 780px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 30px;
+      height: 50px;
+    }
+
+    .scheibe {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 50%;
+      margin: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      color: white;
+    }
+
+    .scheibe.orange {
+      background-color: orange;
+    }
+
+    .scheibe.green {
+      background-color: green;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="scheiben-container">
+    <div class="scheibe">01</div>
+    <div class="scheibe">02</div>
+    <div class="scheibe">03</div>
+    <div class="scheibe">04</div>
+    <div class="scheibe">05</div>
+    <div class="scheibe">06</div>
+    <div class="scheibe">07</div>
+    <div class="scheibe">08</div>
+    <div class="scheibe">09</div>
+    <div class="scheibe">10</div>
+  </div>
+  <div class="scheiben-container">
+    <div class="scheibe">11</div>
+    <div class="scheibe">12</div>
+    <div class="scheibe">13</div>
+    <div class="scheibe">14</div>
+    <div class="scheibe">15</div>
+    <div class="scheibe">16</div>
+    <div class="scheibe">17</div>
+    <div class="scheibe">18</div>
+    <div class="scheibe">19</div>
+    <div class="scheibe">20</div>
+  </div>
+  
+  <div class="scheiben-container">
+    <div class="scheibe">21</div>
+    <div class="scheibe">22</div>
+    <div class="scheibe">23</div>
+    <div class="scheibe">24</div>
+    <div class="scheibe">25</div>
+    <div class="scheibe">26</div>
+    <div class="scheibe">27</div>
+    <div class="scheibe">28</div>
+    <div class="scheibe">29</div>
+    <div class="scheibe">30</div>
+  </div>
+
+  <div class="scheiben-container">
+    <div class="scheibe">31</div>
+    <div class="scheibe">32</div>
+    <div class="scheibe">33</div>
+    <div class="scheibe">34</div>
+    <div class="scheibe">35</div>
+    <div class="scheibe">36</div>
+    <div class="scheibe">37</div>
+    <div class="scheibe">38</div>
+    <div class="scheibe">39</div>
+    <div class="scheibe">40</div>
+  </div>
+  
+  <div class="scheiben-container">
+    <div class="scheibe">41</div>
+    <div class="scheibe">42</div>
+    <div class="scheibe">43</div>
+    <div class="scheibe">44</div>
+    <div class="scheibe">45</div>
+    <div class="scheibe">46</div>
+    <div class="scheibe">47</div>
+    <div class="scheibe">48</div>
+    <div class="scheibe">49</div>
+    <div class="scheibe">50</div>
+  </div>
+
+  <div class="scheiben-container">
+    <div class="scheibe">51</div>
+    <div class="scheibe">52</div>
+    <div class="scheibe">53</div>
+    <div class="scheibe">54</div>
+    <div class="scheibe">55</div>
+    <div class="scheibe">56</div>
+    <div class="scheibe">57</div>
+    <div class="scheibe">58</div>
+    <div class="scheibe">59</div>
+    <div class="scheibe">60</div>
+  </div>
+
+  <div class="scheiben-container">
+    <button id="resetButton">Reset</button>
+  </div>
+ 
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var scheiben = document.getElementsByClassName('scheibe');
+      var resetButton = document.getElementById('resetButton');
+
+      // Zustand der Scheiben aus dem Local Storage wiederherstellen
+      if (localStorage.getItem('scheibenZustand')) {
+        var scheibenZustand = JSON.parse(localStorage.getItem('scheibenZustand'));
+        for (var i = 0; i < scheiben.length; i++) {
+          var farbe = scheibenZustand[i];
+          if (farbe === 'orange') {
+            scheiben[i].classList.add('orange');
+          } else if (farbe === 'green') {
+            scheiben[i].classList.add('green');
+          }
+        }
+      }
+
+      for (var i = 0; i < scheiben.length; i++) {
+        scheiben[i].addEventListener('click', function() {
+          if (this.classList.contains('orange')) {
+            this.classList.remove('orange');
+            this.classList.add('green');
+          } else if (this.classList.contains('green')) {
+            this.classList.remove('green');
+          } else {
+            this.classList.add('orange');
+          }
+
+          // Zustand der Scheiben im Local Storage speichern
+          var scheibenZustand = [];
+          for (var i = 0; i < scheiben.length; i++) {
+            if (scheiben[i].classList.contains('orange')) {
+              scheibenZustand.push('orange');
+            } else if (scheiben[i].classList.contains('green')) {
+              scheibenZustand.push('green');
+            } else {
+              scheibenZustand.push('red');
+            }
+          }
+          localStorage.setItem('scheibenZustand', JSON.stringify(scheibenZustand));
+        });
+      }
+
+      resetButton.addEventListener('click', function() {
+        for (var i = 0; i < scheiben.length; i++) {
+          scheiben[i].classList.remove('orange');
+          scheiben[i].classList.remove('green');
+        }
+
+        // Zustand der Scheiben im Local Storage zurücksetzen
+        localStorage.removeItem('scheibenZustand');
+      });
+    });
+  </script>
+</body>
+</html>
