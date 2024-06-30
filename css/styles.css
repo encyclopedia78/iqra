@@ -24,7 +24,7 @@ body {
 }
 
 .content {
-    padding: 20px;
+    padding: 50px;
 }
 
 table {
@@ -41,4 +41,12 @@ td {
 
 th {
     background-color: #f2f2f2;
+}
+
+.wortInput.correct {
+    background-color: lightgreen;
+}
+
+.wortInput.incorrect {
+    background-color: orangered;
 }

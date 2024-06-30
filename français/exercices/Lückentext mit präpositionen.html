@@ -4,102 +4,1326 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lückentext mit Präpositionen</title>
-    <style>
-      .correct {
-        background-color: lightgreen;
-      }
-      .incorrect {
-        background-color: lightcoral;
-      }
-      input {
-        width: 50px;
-        margin: 2px;
-      }
-      button {
-        margin: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="../../css/styles.css" />
   </head>
   <body>
-    <h1>Lückentext mit Präpositionen</h1>
-    <div id="text">
-      <!-- Der Text mit Lücken (Input-Felder) für Präpositionen -->
-      <p>Qui suis-je?</p>
-      <p>
-        Où suis-je ? Je ne sais pas. Je suis <input type="text" id="i1" /> une
-        magnifique chambre <input type="text" id="i2" /> une vieille maison. Il
-        y a un lit, une chaise coûteuse et une belle table. Je ne peux rien voir
-        <input type="text" id="i3" /> la fenêtre, seulement une prairie verte.
-        Le soleil brille <input type="text" id="i4" /> le champ. J'entends
-        <input type="text" id="i5" /> la musique, une musique douce, c'est
-        Mozart. Pourquoi suis-je ici ? Je ne sais pas, oh, ma tête me fait mal.
-        Je ne peux pas ouvrir la porte. Et je ne peux pas ouvrir la fenêtre. Je
-        porte un pantalon gris et une chemise grise. Je ne porte pas
-        <input type="text" id="i6" /> chaussures. J'ai faim et j'ai soif. Il n'y
-        a pas <input type="text" id="i7" /> nourriture
-        <input type="text" id="i8" /> la chambre. Il n'y a rien
-        <input type="text" id="i9" /> boire non plus.
-        <input type="text" id="i10" /> la table, il y a un stylo et
-        <input type="text" id="i11" /> papier, mais rien d'écrit
-        <input type="text" id="i12" />. Qui suis-je ? Je ne me souviens pas. Je
-        ne me souviens pas <input type="text" id="i13" /> mon nom, je ne me
-        souviens <input type="text" id="i14" /> rien. Oh, ma tête me fait
-        tellement mal. Je suis très fatigué. Je vais dormir.
-      </p>
-      <!-- Weiterer Text... (dieser Teil muss entsprechend dem obigen Schema fortgesetzt werden) -->
+    <div class="content">
+      <h1>Lückentext mit Präpositionen</h1>
+      <div id="text">
+        <!-- Der Text mit Lücken (Input-Felder) für Präpositionen -->
+        <p>
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Qui"
+          />
+          suis-je?
+        </p>
+        <p></p>
+        <p>
+          Où suis-je ? Je ne sais pas. Je suis
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          une magnifique chambre
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          une vieille maison. Il y a un lit, une chaise coûteuse et une belle
+          table. Je ne peux rien voir
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="par"
+          />
+          la fenêtre, seulement une prairie verte. Le soleil brille
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          le champ. J'entends
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la musique, une musique douce, c'est Mozart.
+        </p>
+        <p></p>
+        <p>
+          Pourquoi suis-je ici ? Je ne sais pas, oh, ma tête me fait mal. Je ne
+          peux pas ouvrir la porte. Et je ne peux pas ouvrir la fenêtre. Je
+          porte un pantalon gris et une chemise grise. Je ne porte pas
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          chaussures. J'ai faim et j'ai soif. Il n'y a pas
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          nourriture
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la chambre. Il n'y a rien
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          boire non plus.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Sur"
+          />
+          la table, il y a un stylo et du papier, mais rien d'écrit dessus.
+        </p>
+        <p></p>
+        <p>
+          Qui suis-je ? Je ne me souviens pas. Je ne me souviens pas
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          mon nom, je ne me souviens
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          rien. Oh, ma tête me fait tellement mal. Je suis très fatigué. Je vais
+          dormir.
+        </p>
+        <p></p>
+        <p>
+          C'est le matin. Je suis
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          le lit. Je porte des vêtements gris. J'ai très faim et très soif.
+          J'entends encore
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la musique, c'est encore Mozart. Ma tête ne me fait plus mal, mais je
+          ne me souviens toujours pas
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          mon nom. Je ne me souviens
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          rien. J'entends quelqu'un. Il y a quelqu'un
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          l'extérieur
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la chambre. La porte s'ouvre. Il est
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la chambre. Il porte un pantalon noir et une chemise noire. Je ne le
+          connais pas.
+        </p>
+        <p></p>
+        <p>
+          Bonjour.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Comment"
+          />
+          va ta tête ?
+        </p>
+        <p></p>
+        <p>
+          Ma tête ?
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Comment"
+          />
+          ça va ? Elle ne me fait plus mal.
+        </p>
+        <p></p>
+        <p>
+          BIEN.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Où"
+          />
+          suis-je ?
+        </p>
+        <p></p>
+        <p>Tu ne le sais pas ?</p>
+        <p></p>
+        <p>NON. As-tu soif ?</p>
+        <p></p>
+        <p>Oui, j'ai faim et soif.</p>
+        <p></p>
+        <p>Bois ça.</p>
+        <p></p>
+        <p>
+          Il a un verre
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          la main. Je bois le verre. Oh, je suis
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          nouveau très fatigué. Je vais dormir. Quelle heure est-il ? Ma tête me
+          fait encore mal. Je suis allongé
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          le lit et la chambre est sombre. Je n'entends plus
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          musique. Je vais allumer la lumière. Maintenant, je peux voir. Il y a
+          un verre
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          la table. J'ai encore soif. Je vais boire quelque chose. Dormir. Je
+          vais dormir...
+        </p>
+        <p></p>
+        <p>Réveille-toi !</p>
+        <p></p>
+        <p>Quoi ? Oh, ma tête.</p>
+        <p></p>
+        <p>
+          Oh, je vais te poser quelques questions.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Qui"
+          />
+          es-tu ?
+        </p>
+        <p></p>
+        <p>Je ne sais pas.</p>
+        <p></p>
+        <p>Comment t'appelles-tu ?</p>
+        <p></p>
+        <p>Je ne sais pas.</p>
+        <p></p>
+        <p>
+          Je te demande encore une fois :
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Comment"
+          />
+          t'appelles-tu ?
+        </p>
+        <p></p>
+        <p>Je ne peux pas te le dire. Je ne sais pas.</p>
+        <p></p>
+        <p>D'où viens-tu ?</p>
+        <p></p>
+        <p>Je ne sais pas.</p>
+        <p></p>
+        <p>Bois ça.</p>
+        <p></p>
+        <p>Non, je ne peux pas, ça...</p>
+        <p></p>
+        <p>Tu vas le boire, comprends-tu ?</p>
+        <p></p>
+        <p>
+          Il a une arme
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          la main, je bois le verre. La pièce est sombre. Je suis encore
+          réveillé. Dehors, c'est calme. Le soleil brille
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          travers la fenêtre. Il y a
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la nourriture et
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          l'eau
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          la table. Je ne suis plus fatigué et ma tête va bien. Quelqu'un
+          arrive. La porte s'ouvre, c'est l'homme
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="en"
+          />
+          vêtements noirs.
+        </p>
+        <p></p>
+        <p>
+          De
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="quoi"
+          />
+          veux-tu parler maintenant ?
+        </p>
+        <p></p>
+        <p>
+          D'accord,
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          es-tu ?
+        </p>
+        <p></p>
+        <p>Qui es-tu ?!</p>
+        <p></p>
+        <p>
+          Je pose les questions :
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Pourquoi"
+          />
+          es-tu ici ? Dis-le moi !
+        </p>
+        <p></p>
+        <p>Puis il me frappe. Il me frappe au visage.</p>
+        <p></p>
+        <p>
+          On recommence,
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          es-tu ?
+        </p>
+        <p></p>
+        <p>Je ne me souviens pas. Ne me frappe pas.</p>
+        <p></p>
+        <p>
+          Mais il le fait. Puis il ouvre la porte et sort. Il y a une bosse
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          l'arrière
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          ma tête. Cela ne fait plus mal maintenant, mais mon visage me fait
+          mal. Une bosse, je me souviens
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          quelque chose. Je me souviens
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="que"
+          />
+          j'étais
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          un champ. Je suis allongé
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sous"
+          />
+          un arbre. J'ai une paire
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          jumelles
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          la main. Je regarde une maison. C'est une belle vieille maison. Puis
+          j'entends un bruit
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="derrière"
+          />
+          moi. C'est un homme
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="avec"
+          />
+          un chien, un gros chien. L'homme tient une arme. Puis l'homme me
+          frappe. Il me frappe
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          la tête
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="avec"
+          />
+          l'arme. Ensuite, tout devient noir.
+        </p>
+        <p></p>
+        <p>
+          Maintenant, j'ai une bosse
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          la tête.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Pourquoi"
+          />
+          ?
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Pourquoi"
+          />
+          suis-je
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          cette pièce ?
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Qui"
+          />
+          suis-je ? Suis-je un policier ? Suis-je un espion ? Et
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          est cet homme ? Est-il un policier ? Est-il un espion ? Ou est-il un
+          criminel ? Je ne sais pas. Mais maintenant, je me souviens
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          quelque chose. Demain, je me souviendrai
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          plus
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          choses.
+        </p>
+        <p></p>
+        <p>
+          Le lendemain, l'homme
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="en"
+          />
+          vêtements noirs est
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          retour
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la chambre.
+        </p>
+        <p></p>
+        <p>
+          Alors,
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="comment"
+          />
+          vas-tu aujourd'hui ?
+        </p>
+        <p></p>
+        <p>
+          Comment ça va. Te souviens-tu
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          quelque chose ?
+        </p>
+        <p></p>
+        <p>Oui, un peu.</p>
+        <p></p>
+        <p>
+          Pour
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          travailles-tu ?
+        </p>
+        <p></p>
+        <p>Je ne sais pas.</p>
+        <p></p>
+        <p>Pourquoi nous observais-tu ?</p>
+        <p></p>
+        <p>Je ne sais pas.</p>
+        <p></p>
+        <p>
+          Qui es-tu ? Dis-le moi, peut-être
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="que"
+          />
+          je me souviendrai ?
+        </p>
+        <p></p>
+        <p>
+          Très malin. Je ne peux rien te dire, ça revient, je m'en souviens
+          encore. Je regarde la maison, c'est le soir, je porte un manteau bleu.
+          Il y a des lumières
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la maison. Une voiture s'approche
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la maison. C'est une Jaguar blanche. Je regarde attentivement. Je vois
+          deux personnes. Ils ont une caisse. Puis il y a
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          nouveau ce bruit
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="derrière"
+          />
+          moi. Et le coup
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          la tête. C'est sombre. J'entends des voix
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          l'extérieur
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la pièce.
+        </p>
+        <p></p>
+        <p>Alors, va-t-il parler ?</p>
+        <p></p>
+        <p>
+          Peut-être qu'il ne se souvient
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          rien
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          cause du coup
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          sa tête.
+        </p>
+        <p></p>
+        <p>Et les boissons ?</p>
+        <p></p>
+        <p>Non, les boissons ne nous aident pas.</p>
+        <p></p>
+        <p>
+          D'accord, juste quelques jours
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          plus et c'est fini. Nous n'avons plus
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          temps.
+        </p>
+        <p></p>
+        <p>Combien ça coûte ?</p>
+        <p></p>
+        <p>
+          C'est ce
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          compte le plus.
+        </p>
+        <p></p>
+        <p>
+          J'entends une clé. Ils mettent une clé
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la serrure. Ils tournent la clé. Ils verrouillent la porte. Ils s'en
+          vont, mais la clé est restée
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la serrure. Encore quelques jours et c'est fini.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Que"
+          />
+          vont-ils faire ? Je ne peux pas rester ici. La clé est
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la serrure. J'ai pris du papier
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          la table. Maintenant, met le papier
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          le sol et glisse le papier
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sous"
+          />
+          la porte. Le papier est
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sous"
+          />
+          la porte. Maintenant, prends le stylo et pousse le stylo
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la serrure. Oui, il y a la clé
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la serrure. Appuie
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="avec"
+          />
+          le stylo
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          la clé. Oui, la clé tombe
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la serrure. Est-elle
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          le papier ? Oh, je ne sais pas. Tirez le papier
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sous"
+          />
+          la porte. Tirez-le lentement et soigneusement. Très lentement et très
+          soigneusement, il passe
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sous"
+          />
+          la porte. Et voici la clé. Elle est
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          le papier. J'ai la clé. Je peux ouvrir la porte. Dehors, c'est calme.
+          J'ouvre la porte très lentement et prudemment. Il y a un couloir, il
+          est vide. Je sors. Maintenant, je prends la clé. Je marche le long du
+          couloir. C'est une belle maison. J'entends encore la musique, Mozart.
+          Il y a beaucoup
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          portes.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="À"
+          />
+          la fin, je vois des escaliers. J'entends des gens
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="en"
+          />
+          bas. Je ne peux pas descendre. J'ouvre quelques portes, ce sont des
+          chambres. J'ouvre quatre ou cinq portes, puis j'ouvre une autre porte,
+          la pièce est pleine
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          peintures. Des Picasso, des Rembrandt, des Van Gogh. Oh, elles sont
+          magnifiques. Elles sont
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="par"
+          />
+          terre. Des millions d'euros
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          cette pièce ! Des millions ! Je regarde un Picasso. C'est le célèbre
+          Picasso volé
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          la galerie d'art
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          Londres.
+        </p>
+        <p></p>
+        <p>
+          Qui êtes-vous ? Ce sont des voleurs. Mais
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          suis-je ?
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Comment"
+          />
+          sortir
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          cette maison ? Ils ont des armes. Je me souviens.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Dans"
+          />
+          l'une des chambres, il y a un téléphone. Je peux appeler la police. Je
+          marche vite le long du couloir et j'ouvre la porte. Le téléphone est
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          côté du lit. Le numéro
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          le téléphone est Brade Rue 35972. Je décroche le combiné prudemment.
+          999. J'attends. Pompiers ou ambulance ? Police, vite. Police, quel est
+          votre numéro ? Rue Brade 35972, vite. Je suis prisonnier ici. Je ne
+          peux pas sortir. La maison est pleine
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          tableaux volés. Venez vite. Quel est votre nom ? Venez vite, c'est un
+          chemin
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          côté
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la Rue 35972. Je ne peux pas... Puis j'entends des gens
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          le couloir. Je repose le combiné.
+        </p>
+        <p></p>
+        <p>
+          Je les entends
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="à"
+          />
+          l'extérieur
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la pièce verrouillée.
+        </p>
+        <p></p>
+        <p>Eh bien, ouvre la porte, alors.</p>
+        <p></p>
+        <p>Je ne trouve pas la clé.</p>
+        <p></p>
+        <p>Allez, je ne la trouve pas.</p>
+        <p></p>
+        <p>
+          Il y a une autre clé
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la cuisine. Va la chercher.
+        </p>
+        <p></p>
+        <p>D'accord.</p>
+        <p></p>
+        <p>
+          5 minutes. J'entends
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          nouveau. Il revient
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="avec"
+          />
+          une clé, il ouvre, il entre.
+        </p>
+        <p></p>
+        <p>Il n'est pas là.</p>
+        <p></p>
+        <p>Quoi ? Mais la porte est verrouillée.</p>
+        <p></p>
+        <p>Trouve-le et prends ton arme et finis-le cette fois, compris ?</p>
+        <p></p>
+        <p>D'accord, je vais le faire.</p>
+        <p></p>
+        <p>
+          Je l'entends, il ouvre des portes, la police va venir ou non, il est
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          la pièce d'à côté, puis j'entends des voitures
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          police. Des voitures
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          police, elles sont
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="devant"
+          />
+          la maison, c'est la police.
+        </p>
+        <p></p>
+        <p>Que veulent-ils ?</p>
+        <p></p>
+        <p>Ne prends pas l'arme. Ils descendent. J'entends des voix.</p>
+        <p></p>
+        <p>
+          Bonsoir, inspecteur,
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="que"
+          />
+          puis-je faire
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="pour"
+          />
+          vous ?
+        </p>
+        <p></p>
+        <p>
+          Nous voulons faire le tour
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la maison, nous recherchons certaines peintures volées.
+        </p>
+        <p></p>
+        <p>Il n'y a rien ici, rien du tout.</p>
+        <p></p>
+        <p>
+          Ensuite, nous pouvons vérifier, mais
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="pourquoi"
+          />
+          un appel ?
+        </p>
+        <p></p>
+        <p>
+          10 minutes plus tard, l'homme et la femme montent
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="dans"
+          />
+          les voitures.
+        </p>
+        <p></p>
+        <p>
+          Eh bien, Eddie, c'est une surprise. Eddie, c'est mon nom, allez,
+          Eddie, non, je ne me souviens pas, tu ne peux pas te souvenir
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          moi. Je ne me souviens pas
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          mon nom.
+        </p>
+        <p></p>
+        <p>
+          Eddie, Eddie
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="quoi"
+          />
+          ?
+        </p>
+        <p></p>
+        <p>
+          Eddie Hampton.
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="Que"
+          />
+          fais-tu ici, Eddie ?
+        </p>
+        <p></p>
+        <p>
+          Je lui raconte, je lui parle du champ et des jumelles, je lui parle
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la bosse
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="sur"
+          />
+          ma tête et
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la pièce, je lui parle du papier et
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          la clé. Il se moque
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          moi, d'accord, je suis Eddie Hampton, mais
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          est Eddie Hampton ? Il rit toujours. Sais-tu
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="que"
+          />
+          je suis un policier ?
+        </p>
+        <p></p>
+        <p>Non, Eddie, tu n'es pas un policier.</p>
+        <p></p>
+        <p>
+          Alors
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="qui"
+          />
+          suis-je et
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="que"
+          />
+          fais-je ici ?
+        </p>
+        <p></p>
+        <p>
+          Je ne sais pas, mais je peux te dire une chose : Eddie Hampton est un
+          criminel, un voleur, pas un grand voleur. Ces deux personnes sont
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="de"
+          />
+          grands voleurs
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="avec"
+          />
+          leurs tableaux célèbres. Non, tu es un petit voleur. Eddie, tu voles
+          parfois des maisons, des télévisions, des radios, un peu d'argent. Ah,
+          tu es un petit voleur, mais merci
+          <input
+            type="text"
+            class="wortInput"
+            placeholder="..."
+            data-correct-answer="pour"
+          />
+          ton aide.
+        </p>
+
+        <!-- Weiterer Text... (dieser Teil muss entsprechend dem obigen Schema fortgesetzt werden) -->
+      </div>
+      <button id="validateButton">Überprüfen</button>
+      <button id="populateButton">Lösen</button>
+      <button id="clearButton">Zurücksetzen</button>
+      <script src="../../js/script.js"></script>
     </div>
-    <button onclick="ueberpruefen()">Überprüfen</button>
-    <button onclick="korrigieren()">Korrigieren</button>
-    <button onclick="zuruecksetzen()">Zurücksetzen</button>
-
-    <script>
-      const loesungen = [
-        "dans",
-        "dans",
-        "par",
-        "sur",
-        "de",
-        "de",
-        "de",
-        "dans",
-        "à",
-        "sur",
-        "du",
-        "dessus",
-        "de",
-        "de"
-        // Weitere Lösungen hinzufügen...
-      ];
-
-      function ueberpruefen() {
-        loesungen.forEach((loesung, index) => {
-          const input = document.getElementById(`i${index + 1}`);
-          if (input.value.trim().toLowerCase() === loesung) {
-            input.classList.add("correct");
-            input.classList.remove("incorrect");
-          } else {
-            input.classList.add("incorrect");
-            input.classList.remove("correct");
-          }
-        });
-      }
-
-      function korrigieren() {
-        loesungen.forEach((loesung, index) => {
-          const input = document.getElementById(`i${index + 1}`);
-          input.value = loesung;
-          input.classList.add("correct");
-          input.classList.remove("incorrect");
-        });
-      }
-
-      function zuruecksetzen() {
-        loesungen.forEach((_, index) => {
-          const input = document.getElementById(`i${index + 1}`);
-          input.value = "";
-          input.classList.remove("correct", "incorrect");
-        });
-      }
-    </script>
   </body>
 </html>
