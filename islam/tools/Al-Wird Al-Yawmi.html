@@ -1,135 +1,140 @@
 scheiben_test.html
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الورد اليومي</title>
-  <link rel="manifest" href="manifest.json"></link>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      font-family: Arial, sans-serif;
-    }
-
-    .scheiben-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-    }
-
-    .scheibe {
-      width: 10%; /* Dynamische Breite je nach Bildschirmbreite */
-      padding-bottom: 10%; /* Verhältnis Breite zu Höhe */
-      background-color: red;
-      border-radius: 50%;
-      margin: 1%;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5vw; /* Dynamische Schriftgröße */
-      color: white;
-      text-align: center; /* Zentrieren des Textes horizontal */
-    }
-
-    .scheibe.orange {
-      background-color: orange;
-    }
-
-    .scheibe.green {
-      background-color: green;
-    }
-
-    button#resetButton {
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
-  <div class="scheiben-container">
-    <!-- Hier sind die Scheiben, die dynamisch angepasst werden sollen -->
-  </div>
-
-  <div class="scheiben-container">
-    <button id="resetButton">Reset</button>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var scheibenContainer = document.querySelector('.scheiben-container');
-      var resetButton = document.getElementById('resetButton');
-      resetButton.style.width = (window.innerWidth * 0.2) + 'px'; // Beispiel: 20% der Bildschirmbreite
-      resetButton.style.height = (window.innerHeight * 0.05) + 'px'; // Beispiel: 5% der Bildschirmhöhe
-
-      var scheiben = [];
-
-      // Erzeugen der Scheiben
-      for (var i = 1; i <= 60; i++) {
-        var scheibe = document.createElement('div');
-        scheibe.classList.add('scheibe');
-        scheibe.textContent = ('0' + i).slice(-2); // Fügt führende Nullen hinzu
-        scheibenContainer.appendChild(scheibe);
-        scheiben.push(scheibe);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الورد اليومي</title>
+    <style>
+      * {
+        box-sizing: border-box;
       }
 
-      // Zustand der Scheiben aus dem Local Storage wiederherstellen
-      if (localStorage.getItem('scheibenZustand')) {
-        var scheibenZustand = JSON.parse(localStorage.getItem('scheibenZustand'));
-        for (var i = 0; i < scheiben.length; i++) {
-          var farbe = scheibenZustand[i];
-          if (farbe === 'orange') {
-            scheiben[i].classList.add('orange');
-          } else if (farbe === 'green') {
-            scheiben[i].classList.add('green');
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        font-family: Arial, sans-serif;
+      }
+
+      .scheiben-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+      }
+
+      .scheibe {
+        width: 10%; /* Dynamische Breite je nach Bildschirmbreite */
+        padding-bottom: 10%; /* Verhältnis Breite zu Höhe */
+        background-color: red;
+        border-radius: 50%;
+        margin: 1%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5vw; /* Dynamische Schriftgröße */
+        color: white;
+        text-align: center; /* Zentrieren des Textes horizontal */
+      }
+
+      .scheibe.orange {
+        background-color: orange;
+      }
+
+      .scheibe.green {
+        background-color: green;
+      }
+
+      button#resetButton {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scheiben-container">
+      <!-- Hier sind die Scheiben, die dynamisch angepasst werden sollen -->
+    </div>
+
+    <div class="scheiben-container">
+      <button id="resetButton">Reset</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var scheibenContainer = document.querySelector(".scheiben-container");
+        var resetButton = document.getElementById("resetButton");
+        resetButton.style.width = window.innerWidth * 0.2 + "px"; // Beispiel: 20% der Bildschirmbreite
+        resetButton.style.height = window.innerHeight * 0.05 + "px"; // Beispiel: 5% der Bildschirmhöhe
+
+        var scheiben = [];
+
+        // Erzeugen der Scheiben
+        for (var i = 1; i <= 60; i++) {
+          var scheibe = document.createElement("div");
+          scheibe.classList.add("scheibe");
+          scheibe.textContent = ("0" + i).slice(-2); // Fügt führende Nullen hinzu
+          scheibenContainer.appendChild(scheibe);
+          scheiben.push(scheibe);
+        }
+
+        // Zustand der Scheiben aus dem Local Storage wiederherstellen
+        if (localStorage.getItem("scheibenZustand")) {
+          var scheibenZustand = JSON.parse(
+            localStorage.getItem("scheibenZustand")
+          );
+          for (var i = 0; i < scheiben.length; i++) {
+            var farbe = scheibenZustand[i];
+            if (farbe === "orange") {
+              scheiben[i].classList.add("orange");
+            } else if (farbe === "green") {
+              scheiben[i].classList.add("green");
+            }
           }
         }
-      }
 
-      // Event Listener für Klicks auf Scheiben
-      scheiben.forEach(function(scheibe, index) {
-        scheibe.addEventListener('click', function() {
-          if (this.classList.contains('orange')) {
-            this.classList.remove('orange');
-            this.classList.add('green');
-          } else if (this.classList.contains('green')) {
-            this.classList.remove('green');
-          } else {
-            this.classList.add('orange');
-          }
-
-          // Zustand der Scheiben im Local Storage speichern
-          var scheibenZustand = scheiben.map(function(scheibe) {
-            if (scheibe.classList.contains('orange')) {
-              return 'orange';
-            } else if (scheibe.classList.contains('green')) {
-              return 'green';
+        // Event Listener für Klicks auf Scheiben
+        scheiben.forEach(function (scheibe, index) {
+          scheibe.addEventListener("click", function () {
+            if (this.classList.contains("orange")) {
+              this.classList.remove("orange");
+              this.classList.add("green");
+            } else if (this.classList.contains("green")) {
+              this.classList.remove("green");
             } else {
-              return 'red';
+              this.classList.add("orange");
             }
+
+            // Zustand der Scheiben im Local Storage speichern
+            var scheibenZustand = scheiben.map(function (scheibe) {
+              if (scheibe.classList.contains("orange")) {
+                return "orange";
+              } else if (scheibe.classList.contains("green")) {
+                return "green";
+              } else {
+                return "red";
+              }
+            });
+            localStorage.setItem(
+              "scheibenZustand",
+              JSON.stringify(scheibenZustand)
+            );
           });
-          localStorage.setItem('scheibenZustand', JSON.stringify(scheibenZustand));
-        });
-      });
-
-      // Event Listener für Reset-Button
-      resetButton.addEventListener('click', function() {
-        scheiben.forEach(function(scheibe) {
-          scheibe.classList.remove('orange', 'green');
         });
 
-        // Zustand der Scheiben im Local Storage zurücksetzen
-        localStorage.removeItem('scheibenZustand');
+        // Event Listener für Reset-Button
+        resetButton.addEventListener("click", function () {
+          scheiben.forEach(function (scheibe) {
+            scheibe.classList.remove("orange", "green");
+          });
+
+          // Zustand der Scheiben im Local Storage zurücksetzen
+          localStorage.removeItem("scheibenZustand");
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
