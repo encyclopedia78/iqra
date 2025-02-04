@@ -2,11 +2,28 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-top: 50px;
+    /* Je nach Navbar-Höhe anpassen */
 }
 
 .navbar {
     background-color: #333;
     overflow: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    /* Oder eine andere Hintergrundfarbe */
+    z-index: 1000;
+    /* Stellt sicher, dass die Navbar über anderen Elementen bleibt */
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: Schatten für bessere Sichtbarkeit */
 }
 
 .navbar a {
@@ -49,4 +66,11 @@ th {
 
 .wortInput.incorrect {
     background-color: orangered;
+}
+
+blockquote {
+    font-style: italic;
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 5px solid #007BFF;
 }
