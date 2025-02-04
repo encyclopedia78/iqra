@@ -14,3 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
   `;
   document.getElementById("navbar").innerHTML = navbar;
 });
+
+document.addEventListener("scroll", function() {
+  const navbar = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+      navbar.style.padding = "5px 0"; // Verkleinert die Navbar beim Scrollen
+  } else {
+      navbar.style.padding = "10px 0";
+  }
+});
