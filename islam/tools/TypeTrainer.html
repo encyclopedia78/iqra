@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schreibtrainer mit Statistiken</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        #word {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: yellow;
+        }
+        #input {
+            font-size: 24px;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        #timer {
+            font-size: 24px;
+            color: red;
+        }
+        #stats {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .highlight {
+            color: lightgreen;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 Schreibtrainer mit Statistiken</h1>
+    <p>Tippe das Wort so schnell wie möglich ein!</p>
+    <div id="word">Laden...</div>
+    <input type="text" id="input" autofocus>
+    <p>⏳ Zeit: <span id="timer">5</span> Sekunden</p>
+    <h2>🏆 Score: <span id="score">0</span></h2>
+
+    <div id="stats">
+        <p>✅ <strong>Letzte richtigen Eingaben:</strong> <span id="lastCorrectCount">0</span></p>
+        <p>🔢 <strong>Gesamte Eingaben:</strong> <span id="totalInputs">0</span></p>
+        <p>❌ <strong>Gesamte Fehler:</strong> <span id="totalErrors" class="error">0</span></p>
+        <p>✔ <strong>Gesamte richtige Eingaben:</strong> <span id="totalCorrect" class="highlight">0</span></p>
+        <p>📊 <strong>Treffergenauigkeit:</strong> <span id="accuracy">100%</span></p>
+    </div>
+
+    <script>
+        <!-- const words = ["Apfel", "Banane", "Computer", "Tastatur", "Javascript", "Haus", "Auto", "Buch", "Fenster", "Garten"]; -->
+		const words = ["a","s","d","f","g","h","j","k","l","ö","ä","#"];
+        let currentWord = "";
+        let score = 0;
+        let timeLeft = 5;
+        let timer;
+
+        let totalInputs = 0;
+        let totalErrors = 0;
+        let totalCorrect = 0;
+        let lastCorrectCount = 0;
+
+        const wordDisplay = document.getElementById("word");
+        const inputField = document.getElementById("input");
+        const timerDisplay = document.getElementById("timer");
+        const scoreDisplay = document.getElementById("score");
+        const lastCorrectCountDisplay = document.getElementById("lastCorrectCount");
+        const totalInputsDisplay = document.getElementById("totalInputs");
+        const totalErrorsDisplay = document.getElementById("totalErrors");
+        const totalCorrectDisplay = document.getElementById("totalCorrect");
+        const accuracyDisplay = document.getElementById("accuracy");
+
+        function updateStats() {
+            totalInputsDisplay.textContent = totalInputs;
+            totalErrorsDisplay.textContent = totalErrors;
+            totalCorrectDisplay.textContent = totalCorrect;
+            lastCorrectCountDisplay.textContent = lastCorrectCount;
+
+            let accuracy = totalInputs > 0 ? ((totalCorrect / totalInputs) * 100).toFixed(1) : 100;
+            accuracyDisplay.textContent = accuracy + "%";
+        }
+
+        function newWord() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            wordDisplay.textContent = currentWord;
+            inputField.value = "";
+            timeLeft = 5;
+            timerDisplay.textContent = timeLeft;
+
+            clearInterval(timer);
+            timer = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                alert("Game Over! Dein Score: " + score);
+                location.reload();
+            }
+        }
+
+        inputField.addEventListener("input", function() {
+            totalInputs++;
+            if (inputField.value.trim() === currentWord) {
+                score++;
+                totalCorrect++;
+                lastCorrectCount++; // Erhöhe die Anzahl der letzten richtigen Eingaben
+                scoreDisplay.textContent = score;
+
+                newWord();
+            } else if (!currentWord.startsWith(inputField.value.trim())) {
+                totalErrors++;
+				lastCorrectCount=0;
+            }
+
+            updateStats();
+        });
+
+        newWord(); // Erstes Wort setzen
+    </script>
+</body>
+</html>
